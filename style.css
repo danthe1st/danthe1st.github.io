@@ -39,7 +39,7 @@ header>div{
 }
 
 .repo-card {
-    width: 18rem;
+    width: 19rem;
     margin: 0.5rem;
     text-align: start;
 }
@@ -48,7 +48,7 @@ header>div{
     height: 5rem
 }
 
-.repo-card .card-title span{
+.repo-card .star-btn{
     float: right;
 }
 

@@ -31,13 +31,14 @@ const buildRepo = repo => {
         <div class="card-title">
             <h5>
                 ${repo.name}
-                <a class="github-button invisible-text" href="${repo.html_url}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star danthe1st/${repo.name} on GitHub">Star</a>
             </h5>
         </div>
         <p class="card-text repo-desc">${repo.description}</p>
         <a href="${repo.html_url}" class="btn btn-primary">Visit</a>
         ${getHomepageString(repo)}
-        
+        <div class="star-btn">
+        <a class="github-button invisible-text" href="${repo.html_url}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star danthe1st/${repo.name} on GitHub">Star</a>
+      </div>
       </div>
     </div>
 </div>
