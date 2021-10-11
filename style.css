@@ -1,0 +1,57 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url("rsc/bg.jpg") !important;
+    background-color: #D5EDEF !important;
+    color: dimgrey !important;
+}
+
+h1 {
+    text-align: center;
+}
+header>div{
+    display: inline-block;
+}
+.header-col-first{
+    text-align: right;
+}
+.header-col-first>*{
+    margin-left: auto;
+}
+.header-center{
+    width: fit-content;
+}
+
+.header-center img{
+    width: 10em;
+    border-radius: 50%;
+}
+
+.social-btn img{
+    width: 32px;
+}
+
+.repo-container{
+    text-align: center;
+}
+
+.repo-card {
+    width: 18rem;
+    margin: 0.5rem;
+    text-align: start;
+}
+
+.repo-desc {
+    height: 5rem
+}
+
+.repo-card .card-title span{
+    float: right;
+}
+
+.invisible-text{
+    visibility: hidden;
+}
