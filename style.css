@@ -12,29 +12,33 @@ body {
 h1 {
     text-align: center;
 }
-header>div{
+
+header > div {
     display: inline-block;
 }
-.header-col-first{
+
+.header-col-first {
     text-align: right;
 }
-.header-col-first>*{
+
+.header-col-first > * {
     margin-left: auto;
 }
-.header-center{
+
+.header-center {
     width: fit-content;
 }
 
-.header-center img{
+.header-center img {
     width: 10em;
     border-radius: 50%;
 }
 
-.social-btn img{
+.social-btn img {
     width: 32px;
 }
 
-.repo-container{
+.repo-container {
     text-align: center;
 }
 
@@ -48,10 +52,41 @@ header>div{
     height: 5rem
 }
 
-.repo-card .star-btn{
+.repo-card .star-btn {
     float: right;
 }
 
-.invisible-text{
+.invisible-text {
     visibility: hidden;
+}
+
+@media (max-width: 767px) {
+    header .header-left {
+        order: 2;
+        margin-left: auto;
+    }
+    header .header-left h1 {
+        display: none;
+    }
+    header .header-center {
+        order: 1;
+    }
+
+    header .header-right {
+        order: 3;
+        margin-right: auto;
+    }
+    header .header-right h1 {
+        display: none;
+    }
+    header{
+        text-align: center;
+    }
+}
+header .header-left {
+    width: fit-content;
+}
+
+header .header-right {
+    width: fit-content;
 }
