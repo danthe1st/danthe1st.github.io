@@ -25,6 +25,9 @@ const getHomepageString = repo => {
 }
 
 const buildRepo = repo => {
+    if(!repo.name){
+        return "";
+    }
     return `
     <div class="repo-card card d-inline-flex h-100" >
       <div class="card-body">
@@ -51,13 +54,23 @@ const insertRepo = (elem, repo) => {
 
 const buildRepos = repoDiv => {
     return loadRepos().then(repos=>{
-        for (const repo of repos) {
-            if (!repo.fork && !repo.archived && !repo.disabled && repo.description) {
-                insertRepo(repoDiv, repo)
+        if(Symbol.iterator in Object(repos)) {
+            for (const repo of repos) {
+                if (!repo.fork && !repo.archived && !repo.disabled && repo.description) {
+                    insertRepo(repoDiv, repo)
+                }
             }
         }
     })
 
+}
+
+const prevElementOnlyVisibleIfHasContent=elem=>{
+    if(elem.children.length===0){
+        elem.previousElementSibling.style.display="none"
+        return false
+    }
+    return true
 }
 
 const buildReposFeatured = featuredRepoDiv => {
@@ -81,7 +94,7 @@ window.onload = async () => {
         setBGPosition(document.body, e)
     }
     const featuredRepoDiv = document.getElementById("repos-featured")
-    const promises=[]
+    let promises=[]
     if (featuredRepoDiv) {
         promises.push(buildReposFeatured(featuredRepoDiv))
     }
@@ -89,6 +102,10 @@ window.onload = async () => {
     if (repoDiv) {
         promises.push(buildRepos(repoDiv))
     }
-    Promise.all(promises).then(()=>loadExternalScript("https://buttons.github.io/buttons.js"))
+    Promise.all(promises).then(()=>{
+        if(prevElementOnlyVisibleIfHasContent(featuredRepoDiv)||prevElementOnlyVisibleIfHasContent(repoDiv)){
+            loadExternalScript("https://buttons.github.io/buttons.js")
+        }
+    })
 }
 
