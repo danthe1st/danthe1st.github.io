@@ -109,7 +109,7 @@ window.onload = async () => {
         .then(txt=>markdownConverter.makeHtml(txt))
         .then(html=>document.getElementById("gh-readme").innerHTML=html)
     Promise.all(promises).then(()=>{
-        if(prevElementVisibleIfHasContent(featuredRepoDiv)||prevElementVisibleIfHasContent(repoDiv)){
+        if(prevElementVisibleIfHasContent(featuredRepoDiv)|prevElementVisibleIfHasContent(repoDiv)){
             loadExternalScript("https://buttons.github.io/buttons.js")
         }
     })
