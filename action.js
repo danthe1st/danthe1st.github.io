@@ -102,16 +102,16 @@ window.onload = async () => {
     if (repoDiv) {
         promises.push(buildRepos(repoDiv))
     }
+    Promise.all(promises).then(()=>{
+        if(prevElementVisibleIfHasContent(featuredRepoDiv)|prevElementVisibleIfHasContent(repoDiv)){
+            loadExternalScript("https://buttons.github.io/buttons.js")
+        }
+    })
     const markdownConverter = new showdown.Converter()
     fetch("https://raw.githubusercontent.com/danthe1st/danthe1st/master/README.md")
         .then(res=>res.text())
         .then(txt=>txt.substr(txt.indexOf("\n")))
         .then(txt=>markdownConverter.makeHtml(txt))
         .then(html=>document.getElementById("gh-readme").innerHTML=html)
-    Promise.all(promises).then(()=>{
-        if(prevElementVisibleIfHasContent(featuredRepoDiv)|prevElementVisibleIfHasContent(repoDiv)){
-            loadExternalScript("https://buttons.github.io/buttons.js")
-        }
-    })
 }
 
