@@ -5,6 +5,7 @@
     <title>dan1st</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script type="text/javascript" src="action.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"/>
@@ -36,14 +37,22 @@
             </div>
         </div>
     </header>
-    <h3>Featured Projects</h3>
+    <div id="gh-readme">
+        <noscript>
+            <div class="alert alert-danger">
+                This site requires JavaScript to work. Please enable JavaScript in your browser settings.
+            </div>
+        </noscript>
+    </div>
+    <h3 class="nodisplay">Featured Projects</h3>
     <div id="repos-featured" class="repo-container">
         <!-- featured repository cards are put in here -->
     </div>
-    <h3>GitHub Repositories</h3>
+    <h3 class="nodisplay">GitHub Repositories</h3>
     <div id="repos" class="repo-container">
         <!-- repository cards are put in here -->
     </div>
+
 </div>
 </body>
 </html>
