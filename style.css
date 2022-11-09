@@ -11,6 +11,11 @@ body {
 
 h1 {
     text-align: center;
+	font-size: 4em !important;
+}
+
+header{
+	margin-top: 1.5em;
 }
 
 header > div {
@@ -92,4 +97,9 @@ header .header-left {
 
 header .header-right {
     width: fit-content;
+}
+
+
+.right{
+	float: right
 }

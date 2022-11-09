@@ -7,13 +7,32 @@ const loadSpecificRepo = reponame => {
     if (!reponame.includes("/")) {
         reponame = "danthe1st/" + reponame
     }
-    return fetch("https://api.github.com/repos/" + reponame)
-        .then(res => res.json())
+	let repo=null;
+	/*if(!localStorage.specificRepos){
+		localStorage.specificRepos=[]
+	}*/
+	if(localStorage[reponame]){
+		repo=Promise.resolve(localStorage[reponame])
+	}else{
+		repo=fetch("https://api.github.com/repos/" + reponame)
+			.then(res => res.text())
+			.then(r=>localStorage[reponame]=r)
+	}
+    return repo
+			.then(txt=>JSON.parse(txt))
 }
 
 const loadRepos = () => {
-    return fetch("https://api.github.com/users/danthe1st/repos?per_page=100")
-        .then(res => res.json())
+	let repos=null;
+	if(localStorage.repos){
+		repos = Promise.resolve(localStorage.repos);
+	}else{
+		repos=fetch("https://api.github.com/users/danthe1st/repos?per_page=100")
+			.then(res => res.text())
+			.then(r=>localStorage.repos=r);
+	}
+    return repos
+			.then(txt=>JSON.parse(txt))
 }
 
 
