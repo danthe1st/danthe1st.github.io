@@ -65,7 +65,7 @@ header > div {
 }
 
 .invisible-text {
-    visibility: hidden;
+    font-size: 0;
 }
 
 @media (max-width: 767px) {
