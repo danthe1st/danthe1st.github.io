@@ -28,7 +28,7 @@ jobs:
       - name: Remove unnecessary files
         run: rm .gitignore
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
       - name: Deploy to GitHub Pages
